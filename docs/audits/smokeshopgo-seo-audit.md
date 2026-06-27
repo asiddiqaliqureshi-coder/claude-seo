@@ -14,6 +14,14 @@ A follow-up crawl was run to verify progress against the priority list below.
 - **Still open:** Collections still report **0 items / "No products found"** (confirmed again on Vapes) — the empty-collection indexing risk (critical finding #3) has not been addressed.
 - **Still open:** No evidence of `noindex` or password protection — the store still appears to be publicly crawlable while pre-launch (critical finding #1).
 
+## Re-check #2 — 2026-06-27 (later same day)
+
+- **Fixed:** The `<title>` tag bug is resolved. The homepage now renders a clean title — "Smoke Shop Go – Same-Day Delivery in Downtown Chicago" — with no stray whitespace or duplicated brand suffix. (Critical finding #4.)
+- **Fixed:** The previously-404ing indexed URL (`/products/low-dose-strawberry-gummies`) now returns **200** instead of 404. It currently resolves to a "Join the Waitlist" page ("Smoke Shop Go is launching soon...") rather than a live product — so the dead-link/lost-equity problem is solved, though the page still reflects pre-launch state rather than a sellable product. (Critical finding #2.)
+- **Still open:** Collections still report **0 items / "No products found"** (Vapes re-confirmed) and the collection meta description has not changed further since the previous re-check. (Critical finding #3, gap #5.)
+- **Still open:** No evidence of `noindex` or password protection — the store and its empty collections remain publicly indexable. (Critical finding #1.)
+- **Still open:** No structured data (`LocalBusiness`, `Product`, `BreadcrumbList`) observed yet.
+
 ## 1. Critical findings (fix first)
 
 1. **Site is pre-launch but already indexed and linked from Google.** The homepage banner reads "Launching Soon — Join Our Waitlist," the cart has no checkout flow, and every collection page checked (`/collections/vapes`) returns **"No products found" / 0 items**. Meanwhile Google already has at least 3 URLs indexed (`site:smokeshopgo.com`), including a product URL (`/products/low-dose-strawberry-gummies`) that now **404s**. Indexing an empty, unbuyable storefront wastes crawl budget, creates a bad first impression for anyone who finds it via search, and trains Google to associate the domain with thin/low-value pages before real content exists.
