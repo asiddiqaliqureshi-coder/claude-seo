@@ -4,6 +4,16 @@
 **Site type:** Shopify storefront, local same-day delivery (Chicago smoke/vape/hemp/kratom/mushroom products)
 **Audit method:** Live crawl of homepage, a collection page, a product page, the blog index, robots.txt/sitemap, and Google `site:` results (proxy-direct access to the domain is blocked in this environment, so an external crawler tool was used).
 
+## Re-check — 2026-06-27 (later same day)
+
+A follow-up crawl was run to verify progress against the priority list below.
+
+- **Improved:** Collection meta descriptions are being filled in with real copy. The Vapes collection went from a thin boilerplate description ("Disposable vapes and e-cigarettes.") to "Disposable vapes delivered same-day across downtown Chicago in under 60 minutes. Multiple flavors and nicotine strengths, including zero-nicotine. Must be 21+." — this addresses part of gap #5 (unique, value-add meta descriptions).
+- **Possibly improved, unconfirmed:** The previously-indexed broken product URL (`/products/low-dose-strawberry-gummies`) no longer appears in the sampled `site:smokeshopgo.com` results (2 results now vs. 3 before). This may mean Google dropped it from the index, but it wasn't independently re-verified with a direct fetch — treat as "trending in the right direction," not resolved.
+- **Still open:** The `<title>` tag whitespace/duplicate-brand-suffix bug is unchanged on both the homepage and the Vapes collection page.
+- **Still open:** Collections still report **0 items / "No products found"** (confirmed again on Vapes) — the empty-collection indexing risk (critical finding #3) has not been addressed.
+- **Still open:** No evidence of `noindex` or password protection — the store still appears to be publicly crawlable while pre-launch (critical finding #1).
+
 ## 1. Critical findings (fix first)
 
 1. **Site is pre-launch but already indexed and linked from Google.** The homepage banner reads "Launching Soon — Join Our Waitlist," the cart has no checkout flow, and every collection page checked (`/collections/vapes`) returns **"No products found" / 0 items**. Meanwhile Google already has at least 3 URLs indexed (`site:smokeshopgo.com`), including a product URL (`/products/low-dose-strawberry-gummies`) that now **404s**. Indexing an empty, unbuyable storefront wastes crawl budget, creates a bad first impression for anyone who finds it via search, and trains Google to associate the domain with thin/low-value pages before real content exists.
